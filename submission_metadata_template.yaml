@@ -17,7 +17,7 @@ primary_contact:
 team_members:
   - name: "T Harshini"
     email: "thatikondaharshini10@gmail.com"
-    role: "Team Lead & AI Developer"         # Optional, e.g. "Team Lead", "Backend", "Data"
+    role: " AI Developer"         # Optional, e.g. "Team Lead", "Backend", "Data"
   - name: "V.LavanyaReddy"
     email: "lavanyareddy041106@gmail.com"
     role: "Research, Documentation & Presentation"
