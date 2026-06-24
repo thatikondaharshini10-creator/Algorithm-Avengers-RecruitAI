@@ -11,22 +11,22 @@ team_name: "Algorithm Avengers"  # Used in leaderboard and announcements
 
 primary_contact:
   name: "T Harshini"
-  email: "primary@example.com"   # Used for all organizer communication
+  email: "thatikondaharshini10@gmail.com"   # Used for all organizer communication
   phone: "+91-9704423515"        # Used for top-50 / top-10 outreach
 
 team_members:
   - name: "T Harshini"
-    email: "member1@example.com"
-    role: "ML Engineer"          # Optional, e.g. "Team Lead", "Backend", "Data"
-  - name: "Member 2 Full Name"
-    email: "member2@example.com"
-    role: "Data Engineer"
+    email: "thatikondaharshini10@gmail.com"
+    role: "Team Lead & AI Developer"         # Optional, e.g. "Team Lead", "Backend", "Data"
+  - name: "V.LavanyaReddy"
+    email: "lavanyareddy041106@gmail.com"
+    role: "Research, Documentation & Presentation"
   # Add more members as needed; solo participants list just one member
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/YOUR_USERNAME/YOUR_REPO"
+github_repo: "https://github.com/thatikondaharshini10-creator/Algorithm-Avengers-RecruitAI"
 # Required. Must be reachable. Private repos OK if you can grant organizer
 # access at Stage 3 (the email to add will be communicated then).
 
@@ -35,7 +35,9 @@ sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
 # candidate sample. See Section 10.5 of submission_spec.md for acceptable
 # platforms (HuggingFace Spaces, Streamlit Cloud, Replit, Colab, Docker, Binder).
 
-reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+reproduce_command: reproduce_command: |
+  python src/precompute_embeddings.py
+  python src/fast_ranker.py
 # The single command that produces submission.csv from candidates.jsonl.
 # Should run end-to-end within 5 minutes on CPU with 16GB RAM and no network.
 
@@ -43,15 +45,15 @@ reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submi
 # Compute environment
 # ============================================================================
 compute:
-  platform: "MacBook Pro M2"                    # Or: "AWS EC2 c5.4xlarge", "Local Linux box", etc.
-  cpu_cores: 8                                  # Number of CPU cores used
+  platform:  "13th Gen Intel(R) Core(TM) i5-13420H"                 # Or: "AWS EC2 c5.4xlarge", "Local Linux box", etc.
+  cpu_cores: 12                                  # Number of CPU cores used
   ram_gb: 16                                    # Available RAM in GB
-  python_version: "3.11.4"                      # python --version
-  os: "macOS 14.2"                              # Or "Ubuntu 22.04 LTS", etc.
+  python_version: "3.13.7"                      # python --version
+  os: "Windows 11 Home Single Language"                           # Or "Ubuntu 22.04 LTS", etc.
   uses_gpu_for_inference: false                 # Must be false — see compute constraints
   has_network_during_ranking: false             # Must be false — no API calls during ranking
   pre_computation_required: true               # true if you pre-compute embeddings or train models offline
-  pre_computation_time_minutes: 0               # Approximate, if applicable
+  pre_computation_time_minutes: 25              # Approximate, if applicable
 
 # ============================================================================
 # AI tools declaration
@@ -60,30 +62,36 @@ compute:
 # may verify these declarations against your code; declarations that contradict
 # your code or your interview are flagged.
 ai_tools_used:
-  - "Claude"        # e.g. for architecture discussion, code review
-  - "GitHub Copilot"  # e.g. for autocomplete
+  - "ChatGPT"  # e.g. for autocomplete
   # Other options: "ChatGPT", "Cursor", "Gemini", "Codeium", "Other", "None"
 
 ai_usage_summary: |
-  Briefly describe how AI tools were used. Examples:
-  - "Used Claude for code review and architectural discussion. Used Copilot for autocomplete.
-     No candidate data was fed to any LLM."
-  - "Used ChatGPT to debug Python issues and Cursor for refactoring."
-  - "No AI tools used."
+  ChatGPT was used for architecture discussion, debugging,
+  code review, ranking logic refinement, GitHub setup guidance,
+  and documentation assistance. All implementation,
+  experimentation, scoring design, testing, candidate inspection,
+  runtime optimization, and final submission preparation were
+  performed by the team.
+
 
 # ============================================================================
 # Approach summary (optional but recommended)
 # ============================================================================
 methodology_summary: |
-  ≤200 word summary of your approach. Strongly recommended.
-
-  Example:
-  "Rule-based ranker with explicit reasoning capture. Five scoring components
-  (skills, title+career, experience years, location, education) combined with
-  a multiplicative behavioral-signal modifier. The title component is the
-  decisive signal against keyword-stuffer traps; an endorsement-and-duration
-  trust multiplier on skills catches lazy keyword stuffing. Runtime is ~10
-  seconds for 50K candidates on CPU."
+  RecruitAI is a hybrid AI-powered candidate ranking system built
+  for the Redrob Data & AI Challenge. The system first performs
+  semantic retrieval using Sentence Transformers embeddings and
+  cosine similarity to identify the most relevant candidates.
+  Retrieved candidates are then ranked using a multi-factor scoring
+  framework combining semantic relevance, career alignment,
+  experience suitability, behavioral signals, retrieval expertise,
+  production ML experience, company quality, and honeypot
+  protection. Candidate reasoning is generated from profile facts,
+  skills, career history, and recruiter signals to provide
+  transparent recruiter-friendly explanations. The final ranking
+  pipeline processes a 100K-candidate dataset and produces the
+  Top-100 shortlist in approximately 30 seconds after embedding
+  precomputation.
 
 # ============================================================================
 # Declarations
@@ -92,5 +100,5 @@ declarations:
   read_submission_spec: true        # I have read submission_spec.md in full
   code_is_original_work: true       # My code is my team's original work (using AI as a tool is fine)
   no_collusion: true                # I have not coordinated my submission with other teams
-  honeypot_check_done: false        # OPTIONAL — set true if you explicitly checked for honeypots in your ranking
+  honeypot_check_done: true        # OPTIONAL — set true if you explicitly checked for honeypots in your ranking
   reproduction_tested: true         # I have tested that my reproduce_command runs end-to-end
