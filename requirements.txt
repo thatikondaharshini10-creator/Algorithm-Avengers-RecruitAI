@@ -1,6 +1,3 @@
-sentence-transformers==5.0.0
-scikit-learn==1.7.0
-numpy==2.3.1
-torch
-huggingface-hub
-tqdm
+streamlit==1.45.1
+pandas==2.2.3
+numpy==1.26.4
