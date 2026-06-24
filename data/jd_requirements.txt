@@ -1,0 +1,74 @@
+Senior AI Engineer.
+
+Production experience with retrieval systems.
+
+Production experience with ranking systems.
+
+Embeddings.
+
+Vector databases.
+
+Search systems.
+
+Recommendation systems.
+
+Evaluation frameworks.
+
+NDCG.
+
+MRR.
+
+Offline-online correlation.
+
+Production ML.
+
+Python.
+
+Information Retrieval.
+
+Hybrid Search.
+
+Learning To Rank.
+
+Product Engineering.
+Production retrieval systems
+
+Search infrastructure
+
+Recommendation systems
+
+Ranking systems
+
+Learning to Rank
+
+Embeddings
+
+Vector Databases
+
+FAISS
+
+Pinecone
+
+Weaviate
+
+Milvus
+
+Information Retrieval
+
+NDCG
+
+MRR
+
+Offline Evaluation
+
+Online Evaluation
+
+A/B Testing
+
+Production ML
+
+Hybrid Search
+
+Sentence Transformers
+
+Semantic Search

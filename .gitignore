@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+
+data/candidates.jsonl
+
+artifacts/candidate_embeddings.npy
+artifacts/candidate_ids.json
+
+output/ranked_candidates.csv
+output/ranked_candidates_top100.csv
