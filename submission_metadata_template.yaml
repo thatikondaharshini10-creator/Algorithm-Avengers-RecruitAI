@@ -17,7 +17,7 @@ primary_contact:
 team_members:
   - name: "T Harshini"
     email: "thatikondaharshini10@gmail.com"
-    role: " AI Developer"         # Optional, e.g. "Team Lead", "Backend", "Data"
+    role: "Lead ML Engineer"         # Optional, e.g. "Team Lead", "Backend", "Data"
   - name: "V.LavanyaReddy"
     email: "lavanyareddy041106@gmail.com"
     role: "Research, Documentation & Presentation"
@@ -30,14 +30,12 @@ github_repo: "https://github.com/thatikondaharshini10-creator/Algorithm-Avengers
 # Required. Must be reachable. Private repos OK if you can grant organizer
 # access at Stage 3 (the email to add will be communicated then).
 
-sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
+sandbox_link: "https://algorithm-avengers-recruitai-nyrc7mbfwlqxcqjly3lqkh.streamlit.app/"
 # Required. A working hosted environment where the ranker can be run on a small
 # candidate sample. See Section 10.5 of submission_spec.md for acceptable
 # platforms (HuggingFace Spaces, Streamlit Cloud, Replit, Colab, Docker, Binder).
 
-reproduce_command: reproduce_command: |
-  python src/precompute_embeddings.py
-  python src/fast_ranker.py
+reproduce_command: "python src/precompute_embeddings.py && python src/fast_ranker.py"
 # The single command that produces submission.csv from candidates.jsonl.
 # Should run end-to-end within 5 minutes on CPU with 16GB RAM and no network.
 
@@ -45,7 +43,7 @@ reproduce_command: reproduce_command: |
 # Compute environment
 # ============================================================================
 compute:
-  platform:  "13th Gen Intel(R) Core(TM) i5-13420H"                 # Or: "AWS EC2 c5.4xlarge", "Local Linux box", etc.
+  platform:  "Local Windows Machine"                 # Or: "AWS EC2 c5.4xlarge", "Local Linux box", etc.
   cpu_cores: 12                                  # Number of CPU cores used
   ram_gb: 16                                    # Available RAM in GB
   python_version: "3.13.7"                      # python --version
