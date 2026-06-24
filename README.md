@@ -2,143 +2,313 @@
 
 AI-powered candidate ranking system built for the Redrob Data & AI Challenge 2026.
 
+---
+
+## Live Demo
+
+**Streamlit Sandbox**
+
+https://algorithm-avengers-recruitai-nyrc7mbfwlqxcqjly3lqkh.streamlit.app
+
+**GitHub Repository**
+
+https://github.com/thatikondaharshini10-creator/Algorithm-Avengers-RecruitAI
+
+---
+
 ## Problem Statement
 
-Recruiters often rely on keyword matching systems that fail to understand the complete profile of a candidate. RecruitAI addresses this challenge by combining semantic retrieval with multi-factor candidate scoring to identify candidates who genuinely fit the role.
+Traditional Applicant Tracking Systems (ATS) rely heavily on keyword matching, often failing to identify candidates whose experience and expertise are expressed differently from the exact job description.
+
+RecruitAI addresses this challenge by combining semantic retrieval with a hybrid scoring framework that evaluates candidate relevance, career history, experience, behavioral signals, production ML expertise, retrieval knowledge, and profile quality.
+
+---
+
+## Why RecruitAI?
+
+Traditional keyword-based systems:
+
+* Miss relevant candidates
+* Reward keyword stuffing
+* Provide limited explainability
+
+RecruitAI improves candidate discovery through:
+
+* Semantic understanding of profiles
+* Multi-factor candidate evaluation
+* Explainable recruiter-friendly reasoning
+* Honeypot detection and penalty mechanisms
+* Fast ranking on large-scale datasets
+
+---
 
 ## Approach
 
-RecruitAI uses a hybrid ranking architecture:
+RecruitAI uses a hybrid ranking architecture consisting of three major stages:
 
-1. Semantic Retrieval
+### 1. Semantic Retrieval
 
-   * Sentence Transformers (all-MiniLM-L6-v2)
-   * Candidate embeddings
-   * Cosine similarity search
+* Sentence Transformers (all-MiniLM-L6-v2)
+* Candidate profile embeddings
+* Job description embedding
+* Cosine similarity retrieval
+* Top 2000 candidate selection
 
-2. Candidate Ranking
+### 2. Multi-Factor Candidate Ranking
 
-   * Semantic relevance score
-   * Career alignment score
-   * Experience score
-   * Behavioral signals score
-   * Retrieval expertise score
-   * Production ML score
-   * Company quality score
-   * Honeypot penalty
+The retrieved candidates are evaluated using:
 
-3. Reasoning Generation
+* Semantic Relevance Score
+* Career Alignment Score
+* Experience Score
+* Behavioral Signal Score
+* Retrieval Expertise Score
+* Production ML Experience Score
+* Company Quality Score
+* Honeypot Penalty
 
-   * Generates recruiter-friendly explanations
-   * Uses career history, skills, experience and behavioral signals
-   * Provides transparent ranking decisions
+### 3. Explainable Reasoning Generation
 
-## Architecture
+For every ranked candidate, RecruitAI generates recruiter-friendly reasoning based on:
+
+* Career history
+* Experience
+* Skills
+* Behavioral signals
+* Retrieval expertise
+* Production ML background
+
+This improves transparency and trust in the ranking process.
+
+---
+
+## System Architecture
 
 Job Description
+
 ↓
-Embedding Generation
+
+Sentence Transformer (all-MiniLM-L6-v2)
+
 ↓
-Semantic Retrieval
+
+Semantic Embedding Generation
+
 ↓
-Top 2000 Candidates
+
+Cosine Similarity Search
+
 ↓
-Multi-Factor Scoring
+
+Top 2000 Relevant Candidates
+
 ↓
-Honeypot Detection
+
+Hybrid Scoring Engine
+
+├── Semantic Score
+
+├── Career Score
+
+├── Experience Score
+
+├── Behavioral Signals
+
+├── Retrieval Expertise
+
+├── Production ML Score
+
+├── Company Quality Score
+
+└── Honeypot Penalty
+
 ↓
+
 Reasoning Generation
+
 ↓
+
 Top 100 Ranked Candidates
+
+↓
+
+CSV Output + Sandbox Demo
+
+---
 
 ## Scoring Formula
 
 Final Score =
-0.25 × Semantic Score +
-0.15 × Behavior Score +
-0.15 × Career Score +
-0.10 × Experience Score +
-0.15 × Retrieval Score +
-0.10 × Production ML Score +
-0.10 × Company Score
+
+0.25 × Semantic Score
+
+* 0.15 × Behavioral Score
+
+* 0.15 × Career Score
+
+* 0.10 × Experience Score
+
+* 0.15 × Retrieval Score
+
+* 0.10 × Production ML Score
+
+* 0.10 × Company Score
+
 − Honeypot Penalty
+
+---
+
+## Results
+
+Dataset Size:
+
+~100,000 Candidate Profiles
+
+Relevant Candidates Identified:
+
+24,872 Candidates
+
+Final Output:
+
+Top 100 Ranked Candidates
+
+Embedding Precomputation Time:
+
+~24 Minutes
+
+Ranking Runtime:
+
+~30 Seconds
+
+Hardware:
+
+* 13th Gen Intel Core i5-13420H
+* 16 GB RAM
+* Windows 11
+* Python 3.13.7
+
+---
+
+## Sandbox Demo
+
+A Streamlit-based sandbox is provided for reproducibility and verification.
+
+Features:
+
+* Run candidate ranking on sample candidates
+* View ranked candidate results
+* Download ranked CSV outputs
+* Demonstrate end-to-end ranking workflow
+
+Demo Link:
+
+https://algorithm-avengers-recruitai-nyrc7mbfwlqxcqjly3lqkh.streamlit.app
+
+---
 
 ## Project Structure
 
-src/
+RecruitAI/
 
-* Ranking pipeline
-* Scoring modules
-* Candidate processing
+├── app/
 
-data/
+│ └── Streamlit sandbox application
 
-* Job description
-* Candidate schema
+├── artifacts/
 
-artifacts/
+│ ├── candidate_embeddings.npy
 
-* Precomputed embeddings
-* Candidate ID mapping
+│ └── candidate_ids.json
 
-output/
+├── data/
 
-* Ranked candidate output
+│ ├── candidates.jsonl
 
-experiments/
+│ ├── job_description.txt
 
-* Exploratory analysis
-* Evaluation scripts
+│ └── candidate_schema.json
+
+├── output/
+
+│ └── ranked_candidates_top100.csv
+
+├── src/
+
+│ ├── ranking pipeline
+
+│ ├── scoring modules
+
+│ ├── reasoning generation
+
+│ └── candidate processing
+
+├── experiments/
+
+│ └── exploratory analysis and evaluation scripts
+
+└── README.md
+
+---
 
 ## Reproduction
 
-Step 1
+### Step 1 – Generate Candidate Embeddings
 
 python src/precompute_embeddings.py
 
-Step 2
+### Step 2 – Run Ranking Pipeline
 
 python src/fast_ranker.py
 
-Output:
+### Output
 
 output/ranked_candidates_top100.csv
 
-## Runtime
-
-Embedding Precomputation:
-~24 minutes
-
-Ranking Pipeline:
-~30 seconds
-
-Hardware:
-13th Gen Intel Core i5-13420H
-16 GB RAM
-Windows 11
+---
 
 ## Features
 
 * Semantic candidate retrieval
+* Explainable candidate ranking
 * Career history understanding
 * Behavioral signal analysis
 * Retrieval and recommendation expertise detection
 * Production ML experience scoring
+* Company quality evaluation
 * Honeypot protection
-* Explainable ranking
+* Top-100 candidate generation
+* Streamlit sandbox deployment
+
+---
 
 ## Team
 
-Algorithm Avengers
+### T Harshini
 
-T Harshini
+Lead ML Engineer & System Developer
 
-* Lead Developer & AI/ML Engineer
+### V Lavanya Reddy
 
-V Lavanya Reddy
+Research, Documentation & Presentation
 
-* Research, Documentation & Presentation
+---
+
+## AI Tools Used
+
+ChatGPT was used for:
+
+* Architecture discussions
+* Debugging assistance
+* Code review support
+* GitHub workflow guidance
+* Documentation assistance
+
+All implementation, experimentation, scoring design, testing, optimization, candidate analysis, deployment, and submission preparation were performed by the team.
+
+---
 
 ## Challenge Submission
 
 Redrob Data & AI Challenge 2026
+
+Team Name: Algorithm Avengers
