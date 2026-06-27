@@ -35,7 +35,7 @@ sandbox_link: "https://algorithm-avengers-recruitai-nyrc7mbfwlqxcqjly3lqkh.strea
 # candidate sample. See Section 10.5 of submission_spec.md for acceptable
 # platforms (HuggingFace Spaces, Streamlit Cloud, Replit, Colab, Docker, Binder).
 
-reproduce_command: "python src/precompute_embeddings.py && python src/fast_ranker.py"
+reproduce_command: "python src/fast_ranker.py"
 # The single command that produces submission.csv from candidates.jsonl.
 # Should run end-to-end within 5 minutes on CPU with 16GB RAM and no network.
 
